@@ -1,4 +1,4 @@
-from clients import BaseWarehouseClient
+from src.clients import BaseWarehouseClient
 
 
 class USWarehouseClient(BaseWarehouseClient):

@@ -4,7 +4,7 @@ import os
 import requests
 from tenacity import before_sleep_log, retry, stop_after_attempt, wait_exponential
 
-from utils.logger import get_logger
+from src.utils import get_logger
 
 logger = get_logger(__name__)
 

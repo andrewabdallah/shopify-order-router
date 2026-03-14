@@ -1,7 +1,10 @@
-from clients import ShopifyClient
+from src.clients import ShopifyClient
 
 
 def test_get_orders_pagination(monkeypatch):
+    """
+    Test that the ShopifyClient correctly handles paginated order responses.
+    """
     client = ShopifyClient("https://example.myshopify.com", "token")
 
     responses = [

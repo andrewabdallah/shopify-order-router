@@ -1,9 +1,12 @@
 import os
 
-from clients import EUWarehouseClient, ShopifyClient, USWarehouseClient
-from services import OrderRouter
-from utils import get_logger
+from dotenv import load_dotenv
 
+from src.clients import EUWarehouseClient, ShopifyClient, USWarehouseClient
+from src.services import OrderRouter
+from src.utils import get_logger
+
+load_dotenv()  # Load environment variables from .env file
 logger = get_logger(__name__)
 
 

@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 
-from utils import get_logger
+from src.utils import get_logger
 
 logger = get_logger(__name__)
 
@@ -52,7 +52,7 @@ class OrderRouter:
 
     def _extract_skus(self, line_items: List[Dict[str, Any]]) -> List[str]:
         """
-        Extract SKUs from shopift GraphQL line items.
+        Extract SKUs from Shopify GraphQL line items.
 
         Args:
             line_items: Shopify GraphQL line items edges

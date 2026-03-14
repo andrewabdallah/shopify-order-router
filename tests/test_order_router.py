@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from services import OrderRouter
+from src.services import OrderRouter
 
 
 def test_extract_skus_and_route_to_eu():

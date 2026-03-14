@@ -1,6 +1,6 @@
 import pytest
 
-from clients import BaseWarehouseClient, USWarehouseClient
+from src.clients import BaseWarehouseClient, USWarehouseClient
 
 
 def make_order():
@@ -68,7 +68,7 @@ def test_send_order_success_and_failure(monkeypatch):
 
     # patch requests.post used by BaseWarehouseClient implementation
     monkeypatch.setattr(
-        "clients.base_warehouse_client.requests.post", fake_post_success
+        "src.clients.base_warehouse_client.requests.post", fake_post_success
     )
 
     client = USWarehouseClient()
@@ -79,6 +79,6 @@ def test_send_order_success_and_failure(monkeypatch):
     assert posted["url"] == client.ENDPOINT
 
     # now fail
-    monkeypatch.setattr("clients.base_warehouse_client.requests.post", fake_post_fail)
+    monkeypatch.setattr("src.clients.base_warehouse_client.requests.post", fake_post_fail)
     ok2 = client.send_order(order)
     assert ok2 is False
