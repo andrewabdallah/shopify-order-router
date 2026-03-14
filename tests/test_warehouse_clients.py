@@ -79,6 +79,8 @@ def test_send_order_success_and_failure(monkeypatch):
     assert posted["url"] == client.ENDPOINT
 
     # now fail
-    monkeypatch.setattr("src.clients.base_warehouse_client.requests.post", fake_post_fail)
+    monkeypatch.setattr(
+        "src.clients.base_warehouse_client.requests.post", fake_post_fail
+    )
     ok2 = client.send_order(order)
     assert ok2 is False
