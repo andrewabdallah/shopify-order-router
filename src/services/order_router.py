@@ -92,6 +92,14 @@ class OrderRouter:
         has_eu = any(sku.startswith("EU-") for sku in skus)
         has_us = any(sku.startswith("US-") for sku in skus)
 
+        if any(
+            sku for sku in skus if not (sku.startswith("EU-") or sku.startswith("US-"))
+        ):
+            logger.warning(f"Order contains SKUs with unknown prefixes: {skus}")
+
+        if any(sku for sku in skus if sku == "" or sku is None):
+            logger.warning(f"Order contains empty or null SKUs: {skus}")
+
         if has_eu and has_us:
             logger.info(
                 f"Order contains mixed SKUs (EU and US). Routing to EU Warehouse. SKUs: {skus}"
