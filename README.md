@@ -28,14 +28,14 @@ Shopify API → ShopifyClient → OrderRouter → WarehouseClient → Warehouse 
 
 ### Components
 
-| Component                                 | Responsibility                            |
-| ----------------------------------------- | ----------------------------------------- |
-| **ShopifyClient**                         | Communicates with the Shopify GraphQL API |
-| **OrderRouter**                           | Applies routing business logic            |
-| **WarehouseClient**                       | Sends order payloads to warehouse APIs    |
-| **EUWarehouseClient / USWarehouseClient** | Warehouse-specific implementations        |
-| **main.py**                               | Application entry point                   |
-| **tests/**                                | Unit tests with mocked responses          |
+| Component                                 | Responsibility                                    |
+| ----------------------------------------- | --------------------------------------------------|
+| **ShopifyClient**                         | Communicates with the Shopify GraphQL API         |
+| **OrderRouter**                           | Applies routing business logic                    |
+| **BaseWarehouseClient**                   | Abstract class for warehouse clients              |
+| **EUWarehouseClient / USWarehouseClient** | Warehouse-specific implementations to send orders |
+| **main.py**                               | Application entry point                           |
+| **tests/**                                | Unit tests with mocked responses                  |
 
 This structure keeps API integrations independent from business logic and allows the system to scale if additional warehouse systems are added.
 
