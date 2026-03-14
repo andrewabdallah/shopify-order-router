@@ -156,8 +156,11 @@ src/
   main.py
 
 tests/
+  test_main_smoke.py
   test_order_router.py
   test_shopify_client.py
+  test_shopify_router_integration.py
+  test_warehouse_clients.py
 
 requirements.txt
 README.md
